@@ -1,0 +1,35 @@
+package com.wellmind.dto;
+
+import lombok.Data;
+
+@Data
+public class MentalHealthRiskDTO {
+    private String overallRisk; // baixo, moderado, alto, crítico
+    private String recommendation;
+    private RiskIndicators indicators;
+    
+    @Data
+    public static class RiskIndicators {
+        private PHQ9Indicator phq9;
+        private EmotionIndicator emotions;
+        private ContentIndicator content;
+    }
+    
+    @Data
+    public static class PHQ9Indicator {
+        private Integer score;
+        private String risk;
+    }
+    
+    @Data
+    public static class EmotionIndicator {
+        private Double sadPercentage;
+        private String risk;
+    }
+    
+    @Data
+    public static class ContentIndicator {
+        private Integer negativeSentiment;
+        private String risk;
+    }
+}
